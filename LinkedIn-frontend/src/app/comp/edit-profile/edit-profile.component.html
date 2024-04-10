@@ -1,0 +1,162 @@
+
+<app-navbar></app-navbar>
+<br>
+<div class="row justify-content-center login-card">
+
+    <div class="card" style="width: 28rem;">
+        <div class="header-content">
+            <h5 class="heading text-center p-2 blue-text-color">Complete your profile</h5>
+
+        </div>
+        <div class="card-body">
+            <form action="" class="form" [formGroup]="signupForm" (ngSubmit)="update()">
+
+              <div class="form-group my-form">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control form-control-sm rounded-pill" formControlName="firstName"
+                    id="firstName" placeholder="Enter your first name">
+
+
+                <span id="firstNameError" class="text-danger"
+                    *ngIf="signupForm.controls['firstName'].dirty && signupForm.controls['firstName'].invalid">please
+                    enter a valid name!</span>
+
+            </div>
+
+            <div class="form-group my-form">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control form-control-sm rounded-pill" formControlName="lastName"
+                    id="lastName" placeholder="Enter your last name">
+
+
+                <span id="lastNameError" class="text-danger"
+                    *ngIf="signupForm.controls['lastName'].dirty && signupForm.controls['lastName'].invalid">please
+                    enter a valid name!</span>
+
+            </div>
+
+
+            <div class="form-group my-form">
+                <label for="phoneNo" class="form-label">Phone Number</label>
+                <input type="number" class="form-control form-control-sm rounded-pill" formControlName="phoneNo"
+                    id="phoneNo" placeholder="Enter your phone number">
+
+
+                <span id="phoneNoError" class="text-danger"
+                    *ngIf="signupForm.controls['phoneNo'].dirty && signupForm.controls['phoneNo'].invalid">please
+                    enter a 10 digit number!</span>
+
+            </div>
+
+            <div class="form-group my-form">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control form-control-sm rounded-pill" formControlName="password"
+                    id="password" placeholder="Enter a password">
+
+
+                <span id="passwordError" class="text-danger"
+                    *ngIf="signupForm.controls['password'].dirty && signupForm.controls['password'].invalid">please
+                    enter a valid password!</span>
+
+            </div>
+
+            <div class="form-group my-form">
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control form-control-sm rounded-pill"
+                    formControlName="confirmPassword" id="confirmPassword"
+                    placeholder="re-enter password">
+
+
+                <span id="confirmPasswordError" class="text-danger"
+                    *ngIf="signupForm.controls['confirmPassword'].dirty && signupForm.value['password']!=signupForm.value['confirmPassword']">password
+                    not matched!</span>
+                <span id="confirmPasswordSuccess" class="text-success"
+                    *ngIf="signupForm.controls['confirmPassword'].dirty && signupForm.value['password']===signupForm.value['confirmPassword']">password
+                    matched!</span>
+            </div>
+
+                <div class="form-group my-form">
+                    <label for="headLine" class="form-label">Headline</label>
+                    <input type="text" class="form-control rounded-pill" formControlName="headLine" id="headLine"
+                        placeholder="Enter a headline">
+
+
+                </div>
+
+                <div class="form-group my-form">
+                    <label for="jobTitle" class="form-label">Job Title</label>
+                    <input type="text" class="form-control rounded-pill" formControlName="jobTitle" id="jobTitle"
+                        placeholder="Enter your current Job title">
+
+
+                </div>
+
+                <div class="form-group my-form">
+                    <label for="location" class="form-label">Current Location</label>
+                    <input type="text" class="form-control rounded-pill" formControlName="location" id="location"
+                        placeholder="Enter your current location">
+
+
+                </div>
+
+
+                <div class="form-group my-form">
+                    <fieldset formGroupName="education">
+                    <label for="education"><b>Education Details :-</b></label><br>
+                    <div class="form-group">
+                      <label class="form-label">Institute</label>
+                      <input type="text" class="form-control rounded-pill" id="institution" 
+                      formControlName="institution"  placeholder="Enter your Institute name"/>
+                    </div>
+                   
+                    <div class="form-group my-form">
+                        <label class="form-label">Degree</label>
+                        <input type="text" class="form-control rounded-pill" id="degree" 
+                        formControlName="degree"  placeholder="Enter your degree"/>
+                      </div>
+
+                      <div class="form-group my-form">
+                        <label class="form-label">Field of Study</label>
+                        <input type="text" class="form-control rounded-pill" id="fieldOfStudy" 
+                        formControlName="fieldOfStudy"  placeholder="Enter your field of Study"/>
+                      </div>
+                  
+                    </fieldset>
+                  </div>
+
+
+                  <div class="form-group my-form">
+                    <fieldset formGroupName="summary">
+                    <label for="summary"><b>Job Summary :-</b></label><br>
+                    <div class="form-group">
+                      <label class="form-label">Skills</label>
+                      <input type="text" class="form-control rounded-pill" id="skill" 
+                      formControlName="skill"  placeholder="Enter your skills"/>
+                    </div>
+                   
+                    <div class="form-group my-form">
+                        <label class="form-label">Job Experience</label>
+                        <input type="text" class="form-control rounded-pill" id="experience" 
+                        formControlName="experience"  placeholder="Enter your job experience"/>
+                      </div>
+
+                      <div class="form-group my-form">
+                        <label class="form-label">Career Aspiration</label>
+                        <input type="text" class="form-control rounded-pill" id="aspiration" 
+                        formControlName="aspiration"  placeholder="Enter your career aspiration"/>
+                      </div>
+                  
+                    </fieldset>
+                  </div>
+
+                <div class="row">
+                    <div class="col col-sm-3"> <button class="sign-in-btn btn btn-outline-primary global-btn-color rounded-pill" type="submit">Proceed</button></div>
+                   
+                    <div class="col col-sm-3 offset-6"> <button class="sign-in-btn btn-outline-primary btn global-btn-color rounded-pill" style="margin-left: 22px;" type="submit">Skip</button></div>
+                </div>
+                
+            </form>
+        </div>
+        </div>
+        </div> 
+

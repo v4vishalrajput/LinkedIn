@@ -1,0 +1,46 @@
+.card{
+    transition: .5s ease;
+}
+
+.card:hover{
+   cursor: pointer;
+  
+    box-shadow: 4px 4px 0.5rem 0.1rem  #7aaada ;
+   
+}
+
+.btn-size::before{
+    font-size: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.btn-size{
+    color:  #0A66C2;
+}
+
+
+.bi{
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:1200px) {
+   
+    .link-nav{
+        z-index: 100;
+    }
+
+    .my-list{
+        
+        background-color: #fbfbfb;
+        padding: 10px;
+        border-radius: 15px
+    }
+
+    .cont{
+        padding: 0px 0px;
+        
+    }
+    
+}

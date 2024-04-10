@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+.global-btn-color{
+    background-color: #0A66C2;
+    color: white;
+}
+.blue-text-color{
+    color : #0A66C2;
+}
+body{
+    background-color: rgb(234, 242, 255);
+}
+.blink{
+    border-color:#0A66C2;
+    color:#0A66C2;
+}
+.blink:hover{
+    background-color: #0A66C2;
+    color:white;
+}
+
+.my-navbar{
+    height: 9vh;
+}
+.my-form{
+    margin-bottom: 10px;
+}
+
+.my-btn{
+    margin-top: 10px;
+    background-color: #0A66C2;
+}

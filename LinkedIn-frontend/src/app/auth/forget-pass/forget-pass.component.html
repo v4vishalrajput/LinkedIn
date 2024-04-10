@@ -1,0 +1,87 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 blue-text-color" id="exampleModalLabel">Reset Password</h1>
+          <button type="button" class="btn-close" id="btn-close-ts" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="form" [formGroup]="resetForm" (ngSubmit)="reset()">
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control form-control-sm" formControlName="email" id="email"
+                placeholder="Enter your email">
+  
+  
+              <span id="emailError" class="text-danger"
+                *ngIf="resetForm.controls['email'].dirty && resetForm.controls['email'].invalid">please
+                enter a valid email!</span>
+  
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="phoneNo" class="form-label">Phone Number</label>
+              <input type="number" class="form-control form-control-sm" formControlName="phoneNo" id="phoneNo"
+                placeholder="Enter your phone number">
+  
+  
+              <span id="phoneNoError" class="text-danger"
+                *ngIf="resetForm.controls['phoneNo'].dirty && resetForm.controls['phoneNo'].invalid">please
+                enter a 10 digit number!</span>
+  
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="password" class="form-label">New Password</label>
+              <input type="password" class="form-control form-control-sm" formControlName="password" id="password"
+                placeholder="Enter new password">
+  
+  
+              <span id="passwordError" class="text-danger"
+                *ngIf="resetForm.controls['password'].dirty && resetForm.controls['password'].invalid">please
+                enter a valid password!</span>
+  
+            </div>
+            <br>
+            <div class="form-group">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control form-control-sm" formControlName="confirmPassword"
+                id="confirmPassword" placeholder="Re-enter password">
+  
+              <span id="confirmPasswordError" class="text-danger"
+                *ngIf="resetForm.controls['confirmPassword'].dirty && resetForm.controls['confirmPassword'].invalid ; else opt">please
+                enter a valid password!</span>
+  
+              <ng-template #opt>
+                <span id="confirmPasswordError" class="text-danger"
+                  *ngIf="resetForm.controls['confirmPassword'].dirty && resetForm.value['password']!=resetForm.value['confirmPassword']">password
+                  not matched!</span>
+                <span id="confirmPasswordSuccess" class="text-success"
+                  *ngIf="resetForm.controls['confirmPassword'].dirty && resetForm.value['password']===resetForm.value['confirmPassword']">password
+                  matched!</span>
+              </ng-template>
+  
+            </div>
+  
+            <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+            <div class="text-success" *ngIf="successMessage">{{successMessage}} <br>
+              <br>
+              <span style="color: black;">Redirecting to login page... </span>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col col-sm-3"> <button class="sign-in-btn btn btn-primary global-btn-color rounded-pill"
+                  type="submit" [disabled]="resetForm.invalid">Reset</button></div>
+  
+              <!-- <div class="col col-sm-3 offset-6" *ngIf="successMessage"> <button
+                  class="sign-in-btn btn btn-primary global-btn-color rounded-pill"
+                  style="margin-left: 22px;" [routerLink]="['/home']">Proceed</button></div>
+              -->
+            </div>
+          </form>
+        </div>
+  
+      </div>
+    </div>
+  </div>

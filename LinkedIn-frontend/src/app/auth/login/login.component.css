@@ -1,0 +1,62 @@
+#mylogo{
+    height: 70px;
+    width: 70px;
+}
+
+.mylogo{
+    text-align: center;
+    padding: 20px;
+}
+
+.login-btn{
+    background-color: #0A66C2;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+.forget-password{
+    margin-left: 4px;
+}
+.signup{
+    margin-left: 82px !important;
+}
+
+.heading{
+    color: #0A66C2;
+}
+
+.btns{
+    margin-right: 15px;
+}
+
+.login-btns{
+    margin-right: 10px;
+}
+.row{
+    overflow-y: auto;
+    max-height: 90vh;
+}
+.my-btn{
+    margin: 5px 0px 5px 0px ;
+}
+
+@media screen and (max-width:1200px) {
+   
+    .link-nav{
+        z-index: 100;
+    }
+
+    .my-list{
+        background-color: #fbfbfb;
+        padding: 10px;
+        border-radius: 15px
+    }
+
+    .cont{
+        padding: 0px 0px;
+        
+    }
+    
+}
+
+

@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+
+<div class="row main-row">
+    <div class="container mt-5 " style="margin-left: 7px;">
+        <div class="card rounded-4">
+            <div class="card-header global-btn-color rounded-4 ">
+                <h5 class="card-title">{{profileData.firstName}} {{profileData.lastName}}</h5>
+                <p class="card-subtitle ">{{profileData.jobTitle}}</p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3" style="margin-right: -30px;">
+                        <img [src]="profileData.image" height="80" width="80" alt="Profile Picture"
+                            class="img-fluid rounded-circle">
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li>Email: {{profileData.email}}</li>
+                            <li>Phone: {{profileData.phoneNo}}</li>
+                            <li>Skills: {{profileData.summary.skill}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <p class="card-text">{{profileData.headLine}}</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-outline-primary rounded-pill  blink" [routerLink]="['/editprofile']">Edit Profile</button>
+            </div>
+        </div>
+
+        <!-- Optional: Project Cards -->
+        <div class="mt-4">
+            <h5>Education</h5>
+            <div class="card-deck">
+                <div class="card rounded-4">
+                    <div class="card-body" style="padding: 1rem;">
+                        <p class="card-text"><b>Institute :</b> &nbsp; {{profileData.education.institution}}</p>
+                    </div>
+
+                    <div class="card-body" style="padding: 1rem;">
+                        <p class="card-text"><b>Degree :</b> &nbsp; {{profileData.education.degree}}</p>
+                    </div>
+
+                    <div class="card-body" style="padding: 1rem;">
+                        <p class="card-text"><b>Field of Study :</b> &nbsp; {{profileData.education.fieldOfStudy}}</p>
+                    </div>
+
+                </div>
+                <!-- Add more project cards here -->
+            </div>
+
+            <div class="mt-4">
+                <h5>Summary</h5>
+                <div class="card-deck">
+                    <div class="card rounded-4">
+                        <div class="card-body" style="padding: 1rem;">
+                            <p class="card-text"><b>Experience :</b> {{profileData.summary.experience}}</p>
+                        </div>
+
+                        <div class="card-body" style="padding: 1rem;">
+                            <p class="card-text"><b>Aspiration :</b> {{profileData.summary.aspiration}}</p>
+                        </div>
+
+
+                    </div>
+                    <!-- Add more project cards here -->
+                </div>
+            </div>
+        </div>
+
+    </div>

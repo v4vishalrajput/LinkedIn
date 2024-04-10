@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary my-navbar link-nav">
+    <div class="container-fluid cont">
+        <a class="navbar-brand" style="margin-left: 10px;" [routerLink]="['/main']">
+            <img src="./../../../assets/images/ln.png" width="30" height="30" class="d-inline-block align-top" alt="">
+             <b class="blue-text-color">  LinkedIn</b>
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse my-list" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           
+          
+        </ul>
+        <form class="d-flex" role="search" style="margin-right: 15px;">
+            <button class="btn btn-outline-primary rounded-pill blink login-btns" type="submit" [routerLink]="['/login']">Login</button>
+          <button class="btn btn-outline-primary rounded-pill blink" type="submit" [routerLink]="['/signup']">Signup</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<div class="content" style=" background-image: url('assets/images/main.png');">
+  <!-- <button class="sign-in-btn btn btn-primary global-btn-color rounded-pill" [routerLink]="['/login']">Get Started</button> -->
+</div>

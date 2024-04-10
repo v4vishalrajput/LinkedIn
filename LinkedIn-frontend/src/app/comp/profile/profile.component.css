@@ -1,0 +1,9 @@
+.main-row{
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    
+    max-height: 90vh;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}

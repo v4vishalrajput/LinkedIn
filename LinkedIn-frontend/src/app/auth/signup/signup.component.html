@@ -1,0 +1,230 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary my-navbar link-nav">
+    <div class="container-fluid cont">
+        <a class="navbar-brand" style="margin-left: 10px;" [routerLink]="['/main']">
+            <img src="./../../../assets/images/ln.png" width="30" height="30" class="d-inline-block align-top" alt="">
+             <b class="blue-text-color">  LinkedIn</b>
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse my-list" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           
+          
+        </ul>
+        <form class="d-flex" role="search" style="margin-right: 15px;">
+            <button class="btn btn-outline-primary rounded-pill blink login-btns" type="submit" [routerLink]="['/login']">Login</button>
+          <button class="btn btn-outline-primary rounded-pill blink" type="submit" [routerLink]="['/signup']">Signup</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+     
+    
+      <div class="row justify-content-center login-card">
+    
+        <div class="card rounded-4" style="width: 28rem; margin-top: 2.67%;">
+            <div class="header-content">
+                <h5 class="heading text-center p-2 blue-text-color">Welcome! <br> Create your LinkedIn Account</h5>
+    
+            </div>
+            <div class="card-body">
+                <form action="" class="form" [formGroup]="signupForm" (ngSubmit)="register()">
+
+                    <div class="form-group my-form">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control form-control rounded-pill" formControlName="firstName"
+                            id="firstName" placeholder="Enter your first name">
+
+
+                        <span id="firstNameError" class="text-danger"
+                            *ngIf="signupForm.controls['firstName'].dirty && signupForm.controls['firstName'].invalid">please
+                            enter a valid name!</span>
+
+                    </div>
+
+                    <div class="form-group my-form">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control form-control rounded-pill" formControlName="lastName"
+                            id="lastName" placeholder="Enter your last name">
+
+
+                        <span id="lastNameError" class="text-danger"
+                            *ngIf="signupForm.controls['lastName'].dirty && signupForm.controls['lastName'].invalid">please
+                            enter a valid name!</span>
+
+                    </div>
+
+                    <div class="form-group my-form">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control form-control rounded-pill" formControlName="email"
+                            id="email" placeholder="Enter you email">
+
+
+                        <span id="emailError" class="text-danger"
+                            *ngIf="signupForm.controls['email'].dirty && signupForm.controls['email'].invalid">please
+                            enter a valid email!</span>
+
+                    </div>
+
+                    <div class="form-group my-form">
+                        <label for="phoneNo" class="form-label">Phone Number</label>
+                        <input type="number" class="form-control form-control rounded-pill" formControlName="phoneNo"
+                            id="phoneNo" placeholder="Enter your phone number">
+
+
+                        <span id="phoneNoError" class="text-danger"
+                            *ngIf="signupForm.controls['phoneNo'].dirty && signupForm.controls['phoneNo'].invalid">please
+                            enter a 10 digit number!</span>
+
+                    </div>
+
+                    <div class="form-group my-form">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control form-control rounded-pill" formControlName="password"
+                            id="password" placeholder="Enter a password">
+
+
+                        <span id="passwordError" class="text-danger"
+                            *ngIf="signupForm.controls['password'].dirty && signupForm.controls['password'].invalid">please
+                            enter a valid password!</span>
+
+                    </div>
+
+                    <div class="form-group my-form">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control form-control rounded-pill"
+                            formControlName="confirmPassword" id="confirmPassword"
+                            placeholder="Re-enter password">
+                  
+                            <span id="confirmPasswordError" class="text-danger"
+                            *ngIf="signupForm.controls['confirmPassword'].dirty && signupForm.controls['confirmPassword'].invalid ; else opt">please
+                            enter a valid password!</span>
+
+                    <ng-template #opt>
+                        <span id="confirmPasswordError" class="text-danger"
+                        *ngIf="signupForm.controls['confirmPassword'].dirty && signupForm.value['password']!=signupForm.value['confirmPassword']">password
+                        not matched!</span>
+                    <span id="confirmPasswordSuccess" class="text-success"
+                        *ngIf="signupForm.controls['confirmPassword'].dirty && signupForm.value['password']===signupForm.value['confirmPassword']">password
+                        matched!</span>
+                    </ng-template>
+                       
+                    </div>
+                   
+                    <button class="sign-in-btn btn btn-primary global-btn-color rounded-pill my-btn" [disabled]="signupForm.invalid"
+                        type="submit">Sign up</button>
+                        <br>
+                        <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+                </form>
+                <div class="join-now">Already have an account? <a [routerLink]="['/login']"
+                        class="join-now-btn"><b>Sign in</b></a></div>
+            </div>
+            </div>
+            </div> 
+
+
+    <!-- <div class="row">
+        <div class="container">
+            <div class="row  login-card justify-content-center ">
+                <div class="mylogo col-6">
+                    <img id="mylogo" src="../../../assets/images/ln.png" alt="">
+                </div>
+            </div>
+            <div class="row justify-content-center login-card">
+
+                <div class="card" style="width: 28rem;">
+                    <div class="header-content">
+                        <h6 class="heading text-center p-2">Welcome, Create your LinkedIn account</h6>
+
+                    </div>
+                    <div class="card-body">
+                        <form action="" class="form" [formGroup]="signupForm" (ngSubmit)="register()">
+
+                            <div class="form-group">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="firstName"
+                                    id="firstName" placeholder="Enter your first name">
+
+
+                                <span id="firstNameError" class="text-danger"
+                                    *ngIf="signupForm.controls['firstName'].dirty && signupForm.controls['firstName'].invalid">please
+                                    enter a valid name!</span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control form-control-sm" formControlName="lastName"
+                                    id="lastName" placeholder="Enter your last name">
+
+
+                                <span id="lastNameError" class="text-danger"
+                                    *ngIf="signupForm.controls['lastName'].dirty && signupForm.controls['lastName'].invalid">please
+                                    enter a valid name!</span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control form-control-sm" formControlName="email"
+                                    id="email" placeholder="Enter you email">
+
+
+                                <span id="emailError" class="text-danger"
+                                    *ngIf="signupForm.controls['email'].dirty && signupForm.controls['email'].invalid">please
+                                    enter a valid email!</span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phoneNo" class="form-label">Phone Number</label>
+                                <input type="number" class="form-control form-control-sm" formControlName="phoneNo"
+                                    id="phoneNo" placeholder="Enter your phone number">
+
+
+                                <span id="phoneNoError" class="text-danger"
+                                    *ngIf="signupForm.controls['phoneNo'].dirty && signupForm.controls['phoneNo'].invalid">please
+                                    enter a 10 digit number!</span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control form-control-sm" formControlName="password"
+                                    id="password" placeholder="Enter a password">
+
+
+                                <span id="passwordError" class="text-danger"
+                                    *ngIf="signupForm.controls['password'].dirty && signupForm.controls['password'].invalid">please
+                                    enter a valid password!</span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control form-control-sm"
+                                    formControlName="confirmPassword" id="confirmPassword"
+                                    placeholder="re-enter password">
+
+
+                                <span id="confirmPasswordError" class="text-danger"
+                                    *ngIf="signupForm.controls['confirmPassword'].dirty && signupForm.value['password']!=signupForm.value['confirmPassword']">password
+                                    not matched!</span>
+                                <span id="confirmPasswordSuccess" class="text-success"
+                                    *ngIf="signupForm.controls['confirmPassword'].dirty && signupForm.value['password']===signupForm.value['confirmPassword']">password
+                                    matched!</span>
+                            </div>
+
+                            <button class="sign-in-btn btn global-btn-color" [disabled]="signupForm.invalid"
+                                type="submit">Sign up</button>
+                                <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+                        </form>
+                        <div class="join-now">Already have an account? <a [routerLink]="['/login']"
+                                class="join-now-btn"><b>Sign in</b></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->

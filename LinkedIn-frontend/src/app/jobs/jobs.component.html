@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary my-navbar link-nav">
+    <div class="container-fluid cont">
+        <a class="navbar-brand" style="margin-left: 10px;" [routerLink]="['/home']">
+            <img src="./../../../assets/images/ln.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <b class="blue-text-color"> LinkedIn</b>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse my-list" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/home']">Home</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/profile']">My Profile</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/network']">My Networks</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/jobs']">Jobs</a>
+                </li>
+
+            </ul>
+            <form class="d-flex justify-content-evenly align-items-center" role="search" style="margin-right: 15px;">
+                <button class="btn btn-outline-primary blink rounded-pill me-4" (click)="getAppliedJobs()" >My&nbsp;Applications</button>
+                <input class="form-control me-2 rounded-pill" type="search" placeholder="Search Job..." aria-label="Search" name="search" [(ngModel)]="searchValue"  (keyup)="onSearch()">
+                <a (click)="getAllJobs()" class=""  style="margin-left: 2px;"><i class="bi bi-arrow-clockwise btn-size"></i></a>
+                <!-- <button class="btn btn-outline-primary rounded-pill blink" type="submit" 
+                    style="margin-right: 30px;">Search</button> -->
+                <button class="btn btn-primary rounded-pill global-btn-color" style="margin-left: 70px;" type="submit" (click)="logout()">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="row" style=" overflow-y: auto; scrollbar-width: none;  max-height: 91vh; margin-left: 12.5vw; margin-right: 12.5vw;">
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Job Listing Card 1 -->
+            <div class="col-md-4 mb-4" *ngFor="let job of allJobs" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" (click)="dataToModel(job)">
+                <div class="card rounded-4">
+                    <div class="card-body">
+                        <h5 class="card-title">{{job.jobTitle}}</h5>
+                        <p class="card-text"><span style="font-weight: 400;">Company: </span> <span style="font-weight: 300;">{{job.companyName}}</span></p>
+                        <p class="card-text"><span style="font-weight: 400;">Location: </span> <span style="font-weight: 300;">{{job.location}}</span></p>
+                        <p class="card-text"><span style="font-weight: 400;">Job Type: </span> <span style="font-weight: 300;">{{job.jobType}}</span></p>
+                        <p class="card-text"><span style="font-weight: 400;">Min. Experience: </span> <span style="font-weight: 300;">{{job.experience}}</span></p>
+                       
+                    </div>
+                   
+                </div>
+
+               
+            </div>
+    
+            
+          
+        </div>
+    </div>
+
+
+
+</div>
+
+<app-jobmodals  [job]="job" ></app-jobmodals>

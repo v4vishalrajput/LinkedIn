@@ -1,0 +1,216 @@
+<div class="my-nav">
+    <app-navbar></app-navbar>
+</div>
+<div class="container-fluid whole">
+
+    <div class="row h-100">
+
+        <div class="my-profile col-3 ">
+            <div class="container-fluid  profile-info">
+                <div class="row">
+                    <div class="col-12" style=" margin-top: -30px;">
+                        <div class="card align-items-center rounded-4">
+                            <!-- <div class="card-header fw-bolder rounded-2 my-card-head mb-2 mt-1">
+                      My Profile
+                    </div> -->
+                            <img style="margin-top: 20px;"
+                                class="card-img-top img-fluid img-thumbnail my-dp rounded-circle border-primary-subtle border-3"
+                                height="30" width="30" [src]="profileData.image" alt="no image">
+                            <div class="card-body">
+                                <h4 class="card-title text-center">{{profileData.firstName}} {{profileData.lastName}}</h4>
+                              
+                                <p class="card-text text-center">{{profileData.location}}</p>
+                                <p class="card-text text-center">Connections: {{userList.length}}</p>
+                                <a href="" class="btn btn-outline-primary col-12 rounded-pill blink" [routerLink]="['/profile']">Full Profile</a>
+                                <!-- <a href="" class="mt-2 btn btn-outline-primary col-12 rounded-pill" [routerLink]="['/']" >Log Out</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="posts h-100  overflow-y-auto  col-12 col-md-8 col-xl-6 offset-xl-0 offset-md-2 col-6 ">
+
+         
+
+            <div class="card fr-connections rounded-4 p-1">
+
+                <div class="card-header">
+
+                    <span class="friends">
+                        <h5 style="color: #0A66C2;">My Connections</h5>
+                    </span>
+
+                </div>
+                <div class="card-body p-1" style="padding: 1px;">
+
+                    <div *ngIf="userList.length==0" class="p-1">No Connections.</div>
+                    <div class="row m-2 position-relative" *ngFor="let user of userList">
+
+
+                        <div class="card rounded-4 mb-2 p-2 mycard" data-bs-toggle="modal"
+                            data-bs-target="#profileModal" (click)="dataToModel(user)">
+                            <div class="card-header d-flex justify-content-between">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img class="rounded-circle " height="35" width="35"
+                                        [src]="user.image" alt="not available">
+                                    <p class="fw-bolder m-0 ">{{user.firstName}} {{user.lastName}}</p>
+                                </div>
+
+                                    <a (click)="removeConnection(user.email)" class="unfollow-btn"><i
+                                        class="bi bi-person-x-fill btn-size " style="color: rgb(186, 45, 20);"></i></a>
+
+                               
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <p class="card-text"><strong>Contact No: </strong>{{user.phoneNo}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="card-text"><strong>Email: </strong>{{user.email}}</p>
+                                    </div>
+
+
+                                </div>
+                                <br>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <p class="card-text"><strong>Job Title: </strong>{{user.jobTitle}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="card-text"><strong>Location: </strong>{{user.location}}</p>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                       
+
+
+
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+        </div>
+        
+        <div class="col-3 ">
+
+            <div class="mt-1">
+
+                <div class="card fr-request requests overflow-y-auto rounded-4 p-1">
+
+                    <div class="card-header">
+
+                        <span class="friends">
+                            <h5 style="color: #0A66C2;">Friend Requests</h5>
+                        </span>
+
+                    </div>
+                    <div class="card-body p-1" style="padding: 1px;">
+
+                        <div *ngIf="requestList.length==0" class="p-1">No Pending Requests.</div>
+
+                        <div class="card col-sm-12 mb-1 p-1 mycard rounded-pill" *ngFor="let user of requestList">
+                            <div class="card-body d-flex align-items-center justify-content-between gap-2 p-1"
+                                style="padding: 1px; margin-left: 5px;">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#profileModal" (click)="dataToModel(user)" style="cursor: pointer;">
+                                    <img class="icon-dp rounded-circle" height="20" width="20" style="height: 40px;
+                                width: 40px;" [src]="user.image" alt="not available">
+                                    <p class="fw-bolder m-2">{{user.firstName}} {{user.lastName}}</p>
+                                </div>
+                                <div>
+                                    <div class="d-flex justify-content-around" style="padding: 1px;">
+                                        <a (click)="acceptReq(user.email)" class=" col-sm-3 "><i
+                                                class="bi bi-check-circle btn-size"
+                                                style=" color: rgb(55, 209, 55);"></i></a>
+                                        <a (click)="rejectReq(user.email)" class=" col-sm-3 "><i
+                                                class="bi bi-x-circle btn-size"
+                                                style="color: rgb(213, 76, 52);"></i></a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+
+                </div>
+            </div>
+            <br>
+            <div class="mt-1">
+
+                <div class="card fr-list requests overflow-y-auto rounded-4 p-1">
+                    <div class="card-header">
+                        <span class="friends">
+                            <h5 style="color: #0A66C2;">Suggestions for you</h5>
+                        </span>
+                    </div>
+                    <div class="card-body p-1" style="padding: 1px;">
+
+                        <div *ngIf="suggestionList.length==0" class="p-1">No Suggestions Available.</div>
+
+                        <div class="card col-sm-12 mb-2 p-1 mycard rounded-pill" *ngFor="let user of suggestionList">
+                            <div class="card-body d-flex align-items-center justify-content-between gap-2 p-1"
+                                style="padding: 1px; margin-left: 5px;">
+                                <div class="d-flex align-items-center" data-bs-toggle="modal"
+                                    data-bs-target="#profileModal" (click)="dataToModel(user)" style="cursor: pointer;">
+                                    <img class="icon-dp rounded-circle" height="20" width="20" style="height: 40px;
+                                    width: 40px;" [src]="user.image" alt="not available">
+                                    <p class="fw-bolder m-2">{{user.firstName}} {{user.lastName}}</p>
+                                </div>
+                                <div>
+
+                                    <a (click)="sendReq(user.email)" class=" col-sm-3 "><i
+                                            class="bi bi-person-add btn-size" style=" color: rgb(55, 209, 55);"></i></a>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <app-profilemodal [user]="userdata"></app-profilemodal>

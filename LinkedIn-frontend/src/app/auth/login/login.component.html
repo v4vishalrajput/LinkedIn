@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary my-navbar link-nav">
+    <div class="container-fluid cont">
+        <a class="navbar-brand" style="margin-left: 10px;" [routerLink]="['/main']">
+            <img src="./../../../assets/images/ln.png" width="30" height="30" class="d-inline-block align-top" alt="">
+             <b class="blue-text-color">  LinkedIn</b>
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse my-list" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           
+          
+        </ul>
+        <form class="d-flex" role="search" style="margin-right: 15px;">
+            <button class="btn btn-outline-primary rounded-pill blink login-btns" type="submit" routerLink="['/login']">Login</button>
+          <button class="btn btn-outline-primary rounded-pill blink" type="submit" [routerLink]="['/signup']">Signup</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<div class="selector">
+    <div class="container">
+
+        <div class="card-body card-shadow">
+            <div class="row  login-card justify-content-center ">
+                <div class="mylogo col-6">
+                    <img id="mylogo" src="./../../../assets/images/ln.png" alt="">
+                </div>
+            </div>
+            <div class="row justify-content-center login-card">
+
+                <div class="card rounded-4" style="width: 28rem;">
+                    <div class="header-content">
+                        <h4 class="heading text-center">Welcome! <br> Login with LinkedIn Account</h4>
+                    </div>
+
+                    <form class="form" name="form" [formGroup]="loginForm" (ngSubmit)="validate()" novalidate>
+                        <div class="form-group my-form">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control rounded-pill" formControlName="email" id="email"
+                                placeholder="Enter your email address">
+                        
+
+                            <span id="emailError" class="text-danger"
+                                *ngIf="loginForm.controls['email'].dirty && loginForm.controls['email'].invalid">Please
+                                enter your email id</span>
+
+                        </div>
+
+                        <div class="form-group my-form">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control rounded-pill" formControlName="password" id="password"
+                                placeholder="Enter password">
+
+
+                            <span id="passwordError" class="text-danger"
+                                *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].invalid">Please
+                                enter your password</span>
+
+                        </div>
+
+                        <button class="btn form-control login-btn btn-primary rounded-pill" [disabled]="loginForm.invalid">Login</button>
+                        <br>
+                        <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+                         
+                        <div class="row d-flex justify-content-between" style="margin-top: 6px;">
+                           
+                            <a class="forget-password col-md " data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Forget Password?</a>
+                            <a class="signup col-md" [routerLink]="['/signup']">Click here to Register!</a>
+                        </div>
+                    </form>
+                    <br>
+                    <app-forget-pass></app-forget-pass>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

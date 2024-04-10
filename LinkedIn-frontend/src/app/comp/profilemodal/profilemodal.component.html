@@ -1,0 +1,30 @@
+
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel"
+aria-hidden="true">
+<div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable" data-bs-config={backdrop:true}>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5 blue-text-color" id="exampleModalLabel">Job Details</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" *ngIf="user">
+            <h5 class="card-title">{{user.firstName}} {{user.lastName}}</h5>
+            <p class=""><strong>Email:</strong> {{user.email}}</p>
+            
+            <p><strong>Location:</strong> {{user.location}}</p>
+            <p ><strong>Job Title:</strong> {{user.jobTitle}}</p>
+            <p><strong>Headline:</strong> {{user.headLine}}</p>
+          
+            <p><strong>Contact No:</strong> {{user.phoneNo}}</p>
+            <p><strong>Institution:</strong> {{user.education.institution}}</p>
+            <p><strong>Degree:</strong> {{user.education.degree}}</p>
+            <p><strong>Skills:</strong> {{user.summary.skill}}</p>
+            <p><strong>Working Experience:</strong> {{user.summary.experience}}</p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+</div>
+</div>
