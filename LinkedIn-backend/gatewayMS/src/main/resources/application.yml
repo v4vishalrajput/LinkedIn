@@ -1,0 +1,45 @@
+server:
+  port: 2000  
+spring:
+  application:
+    name: gatewayMS
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        hostname: localhost
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedHeaders: "*"
+            allowedMethods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: userMS
+        uri: lb://userMS
+        predicates:
+        - Path=/user/**
+      - id: contentMS
+        uri: lb://contentMS
+        predicates:
+        - Path=/posts/**  
+      - id: recruitmentMS
+        uri: lb://recruitmentMS
+        predicates:
+        - Path=/job/**
+      - id: networkMS
+        uri: lb://networkMS
+        predicates:
+        - Path=/network/** 
+
+         

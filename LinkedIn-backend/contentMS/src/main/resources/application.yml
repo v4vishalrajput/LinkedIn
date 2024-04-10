@@ -1,0 +1,23 @@
+
+server:
+  port: 8770
+spring:
+  application:
+    name: contentMS
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/post_db
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        hostname: localhost
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 15MB
+          
+
+
+storage:
+  path: C:\\Users\\a\\Documents\\LinkedIn\\LinkedIn-frontend\\LinkedIn\\src\\assets\\uploadedImages\\ 

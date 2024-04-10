@@ -1,0 +1,19 @@
+General:
+  EXCEPTION_MESSAGE: Request could not be processed due to some issue. Please try
+    again!
+Service:
+  USER_NOT_FOUND: No user found with given user id.
+server:
+  port: 8775
+spring:
+  application:
+    name: networkMS
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/network_db
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        hostname: localhost
+       

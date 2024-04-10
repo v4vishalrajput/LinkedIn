@@ -1,0 +1,55 @@
+server:
+  port: 8765
+API:
+  DELETE_SUCCESS: Customer details deleted successfully.
+  INSERT_SUCCESS: 'Customer added successfully with user id :'
+  UPDATE_SUCCESS: Customer emailid successfully updated.
+General:
+  EXCEPTION_MESSAGE: Request could not be processed due to some issue. Please try
+    again!
+Service:
+  INVAID_PHONE: Phone Number is not matching!
+  INVALID_CREDENTIALS: Invalid Credentials!
+  USERS_NOT_FOUND: Email not registered, register now!
+  USER_FOUND: Account already exists!
+  USER_NOT_FOUND: No user found with given user id!
+resilience4j:
+  circuitbreaker:
+    instances:
+      userService:
+        automatic-transition-from-open-to-half-open-enabled: true
+        failure-rate-threshold: 50
+        minimum-number-of-calls: 5
+        sliding-window-size: 10
+        sliding-window-type: count-based
+        wait-duration-in-open-state: 30s
+  
+spring:
+  application:
+    name: userMS
+  cloud:
+    consul:
+      host: localhost
+      discovery:
+        hostname: localhost
+#        health-check-path: /user/actuator/health
+#        health-check-interval: 10s
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/user_db
+
+#management:
+#  security:
+#    enabled: false
+#  health:
+#    consul:
+#      enabled: false
+#    defaults:
+#      enabled: false      
+#  endpoints:
+#        web:
+#            exposure:
+#                include: [health,actuator,info]
+#  endpoint:
+#    health:
+#      show-details: always             
